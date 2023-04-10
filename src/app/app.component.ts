@@ -83,14 +83,6 @@ export class AppComponent implements OnInit {
     this.getEmployeeList();
   }
 
-  editEmpl(id: number) {
-
-    this.httpClient.get<Array<Employee>>("http://192.168.2.219:8080/user/delete" + "/" + id).subscribe((employee) => {
-      console.log(id);
-    })
-    this.getEmployeeList();
-  }
-
 
 
 
