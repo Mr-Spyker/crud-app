@@ -1,0 +1,90 @@
+<!-- <app-header></app-header> -->
+
+<h3>Employee</h3>
+
+
+<div class="container ">
+    <div class="box1">
+        <form [formGroup]="addform" (ngSubmit)="submitForm()" >
+
+
+            <input type="number" placeholder="Enter Id" class="box" formControlName="id"> <br>
+            <span *ngIf="this.addform.get('id')?.touched">
+                <span *ngIf="this.addform.get('id')?.invalid" style="color:red;">
+                    <span *ngIf="this.addform.get('id')?.hasError('required')">This field is required</span>
+                </span>
+            </span>
+
+
+            <input type="text" placeholder="Enter Name" class="box" formControlName="name"> <br>
+            <span *ngIf="this.addform.get('name')?.touched">
+                <span *ngIf="this.addform.get('name')?.invalid" style="color:red;">
+                    <span *ngIf="this.addform.get('name')?.hasError('required')">This field is required</span>
+                </span>
+            </span>
+
+
+
+
+            <input type="text" placeholder="Enter Number" class="box" formControlName="phoneno"> <br>
+            <span *ngIf="this.addform.get('phoneno')?.touched">
+
+                <span *ngIf="this.addform.get('phoneno')?.invalid" style="color:red;">
+
+                    <span *ngIf="this.addform.get('phoneno')?.hasError('required')">This field is required</span>
+
+                    <span *ngIf="this.addform.get('phoneno')?.hasError('minlength')">Can't enter less than 10
+                        numbers</span>
+
+                    <span *ngIf="this.addform.get('phoneno')?.hasError('maxlength')">Can't enter more than 10
+                        numbers</span>
+
+                </span>
+
+            </span>
+
+
+            <button class="btn123" type="submit" *ngIf="show1" [disabled]="!this.addform.valid">Add employee</button>
+
+
+        </form>
+        
+        <button class="btn" type="submit" *ngIf="display" [disabled]="!this.addform.valid" (click)="updateEmp() " id="ubtn">Update</button>
+
+
+
+        <!-- 
+        <ng-container *ngIf="show" >
+
+            <input type="number" [(ngModel)]="id" placeholder="Enter Id" class="box" required disabled="true"><br><br>
+
+            <input type="text" [(ngModel)]="name" placeholder="Enter Name"  class="box" required><br><br>
+
+            <input type="text" [(ngModel)]="phoneno" placeholder="Enter Number"  class="box" required><br><br>
+
+            <button class="btn" type="submit" (click)="updateEmp() " id="ubtn">Edit</button>
+        </ng-container> -->
+
+
+
+    </div>
+
+
+
+
+
+
+    <div class="box23">
+        <div *ngFor="let employee of employee">
+
+            {{employee.id}} {{employee.name}} {{employee.phoneno}}
+
+            <button class="btn" (click)="deleteEmp(employee.id)">Delete</button>
+
+            <button class="btn" type="submit" (click)=" editEmp(employee)" name="Edit">Edit</button>
+
+        </div>
+
+
+    </div>
+</div>

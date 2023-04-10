@@ -1,0 +1,32 @@
+nav {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+}
+
+nav img {
+    height: 50px;
+    width: 50px;
+}
+
+ul {
+    float: right;
+
+
+}
+
+ul li {
+    display: inline-block;
+    padding: 10px;
+    
+}
+
+li a {
+
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+li a:hover {
+    color: rgb(248, 115, 115);
+}
